@@ -1,4 +1,4 @@
-<div class="min-h-full">
+<div class="min-h-full  bg-gray-50">
     <nav class="bg-gray-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
@@ -21,10 +21,17 @@
       </div>
     </header>
 
-      <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 ">
         <!-- Replace with your content -->
-        <div class="px-4 py-2 sm:px-0">          
+        <div class="px-4 py-1 sm:px-0">          
           <app-search (submitted)="onSearch($event)"></app-search>
+          <div  class="min-h-screen bg-gray-50  ">
+            <ul> 
+              <ng-container *ngFor="let article of articles$ | async">    
+                  <app-article [article]="article"></app-article>              
+            </ng-container>
+          </ul>
+        </div>
         </div>
         <!-- /End replace -->
       </div>

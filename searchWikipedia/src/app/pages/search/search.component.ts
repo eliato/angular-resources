@@ -15,7 +15,7 @@ import { debounceTime, distinctUntilChanged, filter, map, tap } from 'rxjs'
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
           <input class="text-3xl placeholder-gray-600 text-gray-800 pb-4 pt-5 pl-20 pr-4 rounded 
-          w-full border-b-4 focus:outline-none focus:border-blue-800" type="text" placeholder="Search Term"
+          w-full border-b-4 focus:outline-none focus:border-blue-800" type="search" placeholder="Search Term"
           [formControl]='inputSearch' >
           </form>
       </div>
@@ -42,7 +42,7 @@ export class SearchComponent implements OnInit {
     this.inputSearch.valueChanges
     .pipe(
       map( (search: string) =>  search.trim()),
-      debounceTime(450),
+      debounceTime(500),
       distinctUntilChanged(),
       filter((search: string)=> search !== ''),
       tap((search: string) => this.submitted.emit(search))

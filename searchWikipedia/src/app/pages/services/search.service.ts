@@ -22,7 +22,7 @@ export interface Article {
 export class SearchService {
     constructor( private readonly http: HttpClient){}
 
-    api = 'https://en.wikipedia.org/w/api.php'
+    api = 'https://es.wikipedia.org/w/api.php'
 
     search(term : string):Observable<Article[]>{
     const params = {
