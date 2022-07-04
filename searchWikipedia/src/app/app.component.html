@@ -24,7 +24,7 @@
       <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <!-- Replace with your content -->
         <div class="px-4 py-2 sm:px-0">          
-          <app-search></app-search>
+          <app-search (submitted)="onSearch($event)"></app-search>
         </div>
         <!-- /End replace -->
       </div>

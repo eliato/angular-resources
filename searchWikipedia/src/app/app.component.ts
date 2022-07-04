@@ -9,7 +9,11 @@ import { tap } from "rxjs";
 export class AppComponent {
   
   constructor(private readonly searchSvc: SearchService){
-    this.searchSvc.search('el salvador')
+    
+  }
+
+  onSearch(term: string): void{
+    this.searchSvc.search(term)
     .pipe(
       tap(res => console.log(res))
     ).subscribe();
