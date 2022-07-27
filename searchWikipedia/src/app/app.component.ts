@@ -13,6 +13,7 @@ export class AppComponent {
   }
 
   onSearch(term: string): void{
+   //onsole.log(term)
     this.articles$ = this.searchSvc.search(term)
     
   }

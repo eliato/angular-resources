@@ -34,11 +34,12 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+   
     this.onChange();
   }
 
   onChange(): void{
+   
     this.inputSearch.valueChanges
     .pipe(
       map( (search: string) =>  search.trim()),
