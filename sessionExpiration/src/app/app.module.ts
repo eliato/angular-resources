@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    SessionExpirationAlert.forRoot({totalMinutes: 0.5}),
+    SessionExpirationAlert.forRoot({totalMinutes: 1}),
     
   ],
   providers: [
