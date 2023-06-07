@@ -8,7 +8,7 @@ import { debounceTime, distinctUntilChanged, filter, map, tap } from 'rxjs'
   
   <div class="w-100 mt-4 mb-8">
       <div class="relative">
-        <form action="">
+        <form onkeydown="return event.key != 'Enter';">
           <svg class="absolute top-0 mt-6 ml-6 w-8 h-8 text-gray-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="11" cy="11" r="8"></circle>
