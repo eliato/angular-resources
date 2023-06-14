@@ -4,8 +4,12 @@
         <div class="card-body">
           <h4 class="card-title">Default Progress bars </h4>
           <div class="progress m-t-20">
-
-              <div class="progress-bar bg-primary active progress-bar-striped" style="width: 80%; height:12px;" role="progressbar"> <span class="sr-only">60% Complete</span> </div>
+            <div class="progress-bar bg-primary active progress-bar-striped" style="height:12px;" [style.width]="getProgreso1"  role="progressbar">
+            </div>
+          </div>
+          <div class="progress m-t-20">
+            <div class="progress-bar bg-success active progress-bar-striped" style="height:12px;" [style.width]="getProgreso2" role="progressbar">
+            </div>
           </div>
       </div>
       </div>
@@ -16,26 +20,14 @@
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        <div class="input-group">
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="button">
-              <i class="fa fa-minus"></i>
-            </button>
-            </span>
-              <input type="text" class="form-control" placeholder="Product name">
-              <span class="input-group-btn">
-            <button class="btn btn-primary" type="button">
-              <i class="fa fa-plus"></i>
-            </button>
-          </span>
-      </div>
+        <app-incrementador (nuevoValor)="progreso1 = $event " [progreso]="15" ></app-incrementador>
       </div>
     </div>
   </div>
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        2
+        <app-incrementador (nuevoValor)="progreso2 = $event " ></app-incrementador>
       </div>
     </div>
   </div>
