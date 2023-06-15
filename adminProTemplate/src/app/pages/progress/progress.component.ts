@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class ProgressComponent {
 
-  progreso1: number = 25;
-  progreso2: number = 15;
+  progreso1: number = 15;
+  progreso2: number = 40;
 
   get getProgreso1(){
     return `${this.progreso1}%`
@@ -18,7 +18,5 @@ export class ProgressComponent {
     return `${this.progreso2}%`
   }
 
-  cambioValorHijo(valor: number ){
-    console.log(valor);
-  }
+
 }
