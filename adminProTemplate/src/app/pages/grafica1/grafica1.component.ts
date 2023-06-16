@@ -8,6 +8,13 @@ import { Component,  } from '@angular/core';
 })
 export class Grafica1Component {
 
+  public labels1: string[] = ['Pan', 'queso', 'huevos'];
+  public data1 = [
+    4, 30,56
+  ];
+
+  public colores = ['#06d79c', '#141e54', '#0d6fff']
+
 
 
 }
