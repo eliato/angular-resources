@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AccountSettingComponent {
 
+  public urlTheme = document.querySelector('#theme');
+
+  changeTheme( theme: string ){
+
+
+    const url = `./assets/css/colors/${theme}.css`;
+
+    this.urlTheme?.setAttribute('href', url);
+
+    localStorage.setItem('theme', url);
+
+  }
+
+
+
 }
