@@ -11,7 +11,7 @@
                       <li><a href="javascript:void()">My Balance</a></li>
                       <li><a href="javascript:void()">Inbox</a></li>
                       <li><a [routerLink]="['account-setting']" routerLinkActive="router-link-active" >Account Setting</a></li>
-                      <li><a href="javascript:void()">Logout</a></li>
+                      <li><a [routerLink]="['/login']">Logout</a></li>
                   </ul>
               </li>
               <li class="nav-devider"></li>
@@ -24,7 +24,7 @@
                 </a>
                   <ul aria-expanded="false" class="collapse">
                       <li *ngFor="let subMenu of item.submenu" >
-                        <a [routerLink]="subMenu.url"> {{ subMenu.titulo }} </a>
+                        <a [routerLink]="subMenu.url" > {{ subMenu.titulo }} </a>
                       </li>
 
                   </ul>
