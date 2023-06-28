@@ -5,6 +5,8 @@ import { ProgressComponent } from './progress/progress.component';
 import { Grafica1Component } from './grafica1/grafica1.component';
 import { NgModule } from '@angular/core';
 import { AccountSettingComponent } from './account-setting/account-setting.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RjxComponent } from './rjx/rjx.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,13 @@ const routes: Routes = [
       {
         path: 'account-setting', component: AccountSettingComponent
       },
+      {
+        path: 'promesas', component: PromesasComponent
+      },
+      {
+        path: 'rjx', component: RjxComponent
+      },
+
 
     ]
   }
