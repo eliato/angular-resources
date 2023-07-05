@@ -7,3 +7,15 @@ app.listen( 3000, () => {
 }
 
 )
+
+
+app.get('/', (req, res) => {
+
+  res.json(
+    {
+      "ok":true,
+      "msj": "hola mundo"
+    }
+  )
+
+})
