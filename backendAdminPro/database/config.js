@@ -4,7 +4,7 @@ const dbConnection = async() => {
 
   try {
     
-    await  mongoose.connect('mongodb+srv://mean-user:unaSvByNp8IFDc1i@cluster0.d5gc2rb.mongodb.net/hospitaldb');
+    await  mongoose.connect(process.env.DB_CNN);
     console.log('DB online');
     
   } catch (error) {
