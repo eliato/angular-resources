@@ -1,0 +1,10 @@
+**para manejar coneccion a la base de datos **
+  npm i mongoose  
+
+** para poder leer variables de entorno .ev **
+  npm i dotenv
+
+** para manejar peticiones desde cualquier lado **
+  npm i cors
+
+  
