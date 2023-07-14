@@ -14,20 +14,12 @@ app.use( cors() );
 dbConnection();
 
 
+app.use('/api/usuarios', require('./routes/usuarios'))
+
+
 app.listen( process.env.PORT, () => {
   console.log('Servidor Corriendo en el puerto ' + process.env.PORT);
 }
 
 )
 
-
-app.get('/', (req, res) => {
-
-  res.json(
-    {
-      "ok":true,
-      "msj": "hola mundo"
-    }
-  )
-
-})
