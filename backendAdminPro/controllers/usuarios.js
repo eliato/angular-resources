@@ -78,13 +78,12 @@ const actualizarUsuarios = async (req, res = response) => {
   //actualizaciones
 
 
-  const campos = req.body;
+  const {password, google, email, ...campos} = req.body;
 
-  if (usuarioDb.email === req.body.email ) {
-    delete campos.email;
-  } else {
+  if (usuarioDb.email !== email ) {
+    
 
-    const existeEmail = await Usuario.findOne({ email: req.body.email });
+    const existeEmail = await Usuario.findOne({ email });
 
     if (existeEmail) {
       return  res.status(400).json({
@@ -96,8 +95,7 @@ const actualizarUsuarios = async (req, res = response) => {
     
   }
   
-  delete campos.password;
-  delete campos.google;
+  campos.email = email;
 
   const usuarioActualizado = await Usuario.findByIdAndUpdate( uid, campos, { new: true});   
   
