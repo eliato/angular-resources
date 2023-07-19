@@ -20,10 +20,6 @@ const getUsuarios = async(req, res) => {
 const crearUsuarios = async(req, res = response) => {
 
   const {email, password} = req.body;
-
-  
-
-
   try {
 
     const existeEmail = await Usuario.findOne({ email });
@@ -42,7 +38,7 @@ const crearUsuarios = async(req, res = response) => {
 
       await usuario.save();
 
-      
+
       res.json(
         {
           "ok":true,
@@ -54,7 +50,7 @@ const crearUsuarios = async(req, res = response) => {
   } catch (error) {
       res.status(500).json({
         ok: false,
-        mg: 'Error inesperado verificar la consola'
+        mg: 'Error inesperado al crear usuario'
       })
   }
 
@@ -62,8 +58,68 @@ const crearUsuarios = async(req, res = response) => {
 
 }
 
+const actualizarUsuarios = async (req, res = response) => {
+
+  const uid = req.params.id;
+
+  try {
+
+    const usuarioDb = await Usuario.findById( uid )
+
+    if ( !usuarioDb ) {
+      
+    return  res.status(404).json({
+        ok: false,
+        mg: 'Id de usuario no existe!'
+      })
+      
+    }
+
+  //actualizaciones
+
+
+  const campos = req.body;
+
+  if (usuarioDb.email === req.body.email ) {
+    delete campos.email;
+  } else {
+
+    const existeEmail = await Usuario.findOne({ email: req.body.email });
+
+    if (existeEmail) {
+      return  res.status(400).json({
+        ok: false,
+        mg: 'Ya existe otro usuario con ese email!'
+      })
+    }
+
+    
+  }
+  
+  delete campos.password;
+  delete campos.google;
+
+  const usuarioActualizado = await Usuario.findByIdAndUpdate( uid, campos, { new: true});   
+  
+  res.json({
+    ok: true,
+     usuario: usuarioActualizado
+  })
+    
+  } catch (error) {
+
+    res.status(500).json({
+      ok: false,
+      mg: 'Error inesperado en actualizar'
+    })
+    
+  }
+
+}
+
 
 module.exports = {
   getUsuarios, 
-  crearUsuarios
+  crearUsuarios,
+  actualizarUsuarios
 }
