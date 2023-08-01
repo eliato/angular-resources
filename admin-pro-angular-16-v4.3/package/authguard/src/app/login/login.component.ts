@@ -1,0 +1,32 @@
+import { Component } from '@angular/core';
+import { RouterModule, Router } from '@angular/router';
+import { MyserviceService } from './../myservice.service';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-login',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './login.component.html',
+  providers: [MyserviceService],
+})
+export class LoginComponent {
+  msg = '';
+  constructor(private service: MyserviceService, private routes: Router) {}
+
+  loginform = true;
+  recoverform = false;
+
+  showRecoverForm() {
+    this.loginform = !this.loginform;
+    this.recoverform = !this.recoverform;
+  }
+  check(uname: string, p: string) {
+    const output = this.service.checkusernameandpassword(uname, p);
+    if (output == true) {
+      this.routes.navigate(['/starter']);
+    } else {
+      this.msg = 'Invalid Username or Password';
+    }
+  }
+}
