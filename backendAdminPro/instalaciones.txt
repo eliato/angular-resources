@@ -9,3 +9,4 @@
 
 ** para hacer validaciones se mi automaticas **
   npm i express-validator
+
